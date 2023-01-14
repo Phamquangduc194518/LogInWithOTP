@@ -1,5 +1,4 @@
 <?php
-  
 namespace App\Models;
   
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -31,12 +30,14 @@ class UserOtp extends Model
     
         try {
   
-            $account_sid = getenv("TWILIO_SID");
-            $auth_token = getenv("TWILIO_TOKEN");
-            $twilio_number = getenv("TWILIO_FROM");
+            $sid = 'AC377c80bdf162606a0593e506ba268f85';
+            $token = 'aaa27db04bc6ce2407212ef704565c83';
+            $twilio_number ='+14057846309';
   
-            $client = new Client($account_sid, $auth_token);
-            $client->messages->create($receiverNumber, [
+            $client = new Client($sid, $token);
+            $client->messages->create(
+                '+84865702596',
+                [
                 'from' => $twilio_number, 
                 'body' => $message]);
    
